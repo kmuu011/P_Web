@@ -73,38 +73,13 @@ location.href = '${rPath}/depart/departList';
 <button onclick="delRow()">부서 삭제</button>
 </div>
 
+
+<br>
+
 <div class="page" style="text-align:center">
-
-<c:if test="${empty pi.sch}">
-	<c:if test="${pi.firstPage != 1}">
-	<a href="${rPath}/depart/departList?page=${pi.firstPage-1}">[이전페이지]</a>
-	</c:if>
-	
-	<c:forEach begin="${pi.firstPage}" end="${pi.lastPage}" var="p">
-	[<a href="${rPath}/depart/departList?page=${p}">${p}</a>]
-	</c:forEach>
-	
-	<c:if test="${pi.lastPage != pi.totalPage}">
-	<a href="${rPath}/depart/departList?page=${pi.firstPage+pi.pageCnt}">[다음페이지]</a>
-	</c:if>
-</c:if>
-
-<c:if test="${!empty pi.sch}">
-	<c:if test="${pi.firstPage != 1}">
-	<a href="${rPath}/depart/departList?page=${pi.firstPage-1}&search=${pi.sch}&op=${pi.op}">[이전페이지]</a>
-	</c:if>
-	
-	<c:forEach begin="${pi.firstPage}" end="${pi.lastPage}" var="p">
-	[<a href="${rPath}/depart/departList?page=${p}&search=${pi.sch}&op=${pi.op}">${p}</a>]
-	</c:forEach>
-	
-	<c:if test="${pi.lastPage != pi.totalPage}">
-	<a href="${rPath}/depart/departList?page=${pi.firstPage+pi.pageCnt}&search=${pi.sch}&op=${pi.op}">[다음페이지]</a>
-	</c:if>
-
-</c:if>
-
+	<jsp:include page="/WEB-INF/views/menu/pagination.jsp"></jsp:include>
 </div>
+
 
 </div>
 <script>
